@@ -146,13 +146,8 @@ public class manageroom extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       String roomNo=jTextField1.getText();
-       String roomType=(String)jComboBox1.getSelectedItem();
-       String bed=(String)jComboBox2.getSelectedItem(); 
-       String price=jTextField2.getText();
-       String Query="INSERT INTO rooms(roomNO,roomType,bed,price,status)VALUES('"+roomNo+"','"+roomType+"','"+bed+"','"+price+"','Not Booked')";
-       InsertUpdateDelete.setData(Query, "successfully Updated");
-       setVisible(true);
+      Rooms.addRoom(jTextField1.getText(),(String)jComboBox1.getSelectedItem(),(String)jComboBox2.getSelectedItem(),Double.parseDouble(jTextField2.getText()));
+       
        new manageroom().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -173,6 +168,7 @@ public class manageroom extends javax.swing.JFrame {
       catch (Exception e ){
           JOptionPane.showMessageDialog(null, e);
       }
+     ;
     }//GEN-LAST:event_formComponentShown
 
     /**
