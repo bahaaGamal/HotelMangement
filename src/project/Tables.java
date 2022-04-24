@@ -17,7 +17,7 @@ public class Tables {
     st=con.createStatement();
     st.executeUpdate("create table rooms(roomNo varchar(10),roomType varchar(200),bed varchar(200),price int ,status varchar(20))");
     st.executeUpdate("create table customer(id int ,name varchar(200),mobileNumber varchar(20),nationalty varchar(200) ,gender varchar(50),email varchar(200),idproof varchar(200),adress varchar(500),checkIn varchar(50),roomNo varchar(50),bed varchar(200),roomType varchar(200),pricePerDay int,numberOfDayStay int ,totalAmount varchar(200),checkout varchar(50))");
-
+    st.executeUpdate("create table admins(name varchar(100) ,email varchar(200) ,password varchar(200) ,phonenumber varchar(11) ,ssn varchar(30))");
     JOptionPane.showMessageDialog(null, "table created successfully ");
     }
     catch (Exception e )
