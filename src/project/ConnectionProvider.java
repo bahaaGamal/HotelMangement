@@ -25,7 +25,7 @@ public class ConnectionProvider {
     public static Connection getCone(){
     try{
     Class.forName("com.mysql.cj.jdbc.Driver");
-    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel" ,"zeaad","123456") ; 
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/hotel2" ,"root","123456") ; 
     return con;
     }
      catch (Exception e) {

@@ -82,6 +82,7 @@ public class CustomerCheckIn extends javax.swing.JFrame {
         jTextField7 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -226,7 +227,7 @@ public class CustomerCheckIn extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(819, 415, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 440, -1, -1));
 
         jButton3.setBackground(new java.awt.Color(102, 0, 0));
         jButton3.setFont(new java.awt.Font("Aharoni", 1, 14)); // NOI18N
@@ -237,7 +238,17 @@ public class CustomerCheckIn extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(819, 456, -1, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 480, -1, -1));
+
+        jButton4.setBackground(new java.awt.Color(51, 0, 0));
+        jButton4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton4.setText("Confirm The Entered Data");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 410, -1, -1));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/all pages background.png"))); // NOI18N
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -335,6 +346,193 @@ public class CustomerCheckIn extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+
+        String name=jTextField1.getText();
+String Password=jTextField2.getText();
+String national=jTextField3.getText();
+String Email=jTextField5.getText();
+String SSN=jTextField4.getText();
+String checkDate=jTextField6.getText();
+
+boolean name1=true,Password1=true,national1=true,Email1=true,SSN1=true,checkDate1=true;
+
+
+if(name.contentEquals(""))
+{
+         JOptionPane.showMessageDialog(this, "please fill the name's field");
+         name1=false;
+}
+
+else{
+int nNAme=name.length();
+char list []=name.toCharArray();
+for(int i=0;i<nNAme;i++){
+    char cn=list[i];
+ if(Character.isDigit(cn)||cn=='*'||cn=='!'||cn=='/'||cn=='_'||cn=='+'||cn=='-'||cn=='$'||cn=='@'||cn=='#'||cn=='%'||cn=='^'||cn=='&'||cn=='('||cn==')'||cn=='=')
+ { JOptionPane.showMessageDialog(this, "you can only enter letters in name's field");
+     jTextField1.setText(" ");
+              name1=false;
+     break;}
+}
+}
+
+
+if(Password.contentEquals(""))
+{
+         JOptionPane.showMessageDialog(this, "please fill the Password's field");
+                  Password1=false;
+
+}
+
+else
+{
+int np=Password.length();
+char listp []=Password.toCharArray();
+ if(np!=11){
+     JOptionPane.showMessageDialog(this, "the phone number must be 11 digit");
+     jTextField2.setText(" ");
+                   Password1=false;
+}
+ 
+ if((listp[0]!='0' || listp[1]!='1')  )
+ {
+   {JOptionPane.showMessageDialog(this, "the phone number must start with '01' ");
+     jTextField2.setText(" ");}
+                     Password1=false;
+ }
+for(int i=0;i<np;i++)
+{
+    char cp=listp[i];
+ if(Character.isLetter(cp)||cp=='*'||cp=='!'||cp=='/'||cp=='_'||cp=='+'||cp=='-'||cp=='$'||cp=='@'||cp=='#'||cp=='%'||cp=='^'||cp=='&'||cp=='('||cp==')'||cp=='=')
+ { JOptionPane.showMessageDialog(this, "you can only enter numbers in phone number's field");
+     jTextField2.setText(" ");
+                       Password1=false;
+     break;}
+}
+
+}
+
+
+if(national.contentEquals(""))
+{
+         JOptionPane.showMessageDialog(this, "please fill the national's field");
+                           national1=false;
+
+}
+
+else{
+int n_nation=national.length();
+char listnational []=national.toCharArray();
+for(int i=0;i<n_nation;i++){
+char c_nat=listnational[i];
+    
+ if(Character.isDigit(c_nat)||c_nat=='*'||c_nat=='!'||c_nat=='/'||c_nat=='_'||c_nat=='+'||c_nat=='-'||c_nat=='$'||c_nat=='@'||c_nat=='#'||c_nat=='%'||c_nat=='^'||c_nat=='&'||c_nat=='('||c_nat==')'||c_nat=='=')
+ { JOptionPane.showMessageDialog(this, "you can only enter letters in nationality's field");
+     jTextField3.setText(" ");
+     national1=false;
+ break;}}
+
+if(n_nation<3)
+{
+ JOptionPane.showMessageDialog(this, "nationality must be at least 3 letters");
+      jTextField3.setText(" ");
+                                 national1=false;
+}
+}
+
+if(Email.contentEquals(""))
+{
+         JOptionPane.showMessageDialog(this, "please fill the Email's field");
+                                    Email1=false;
+
+}
+
+else{
+    int nE=Email.length();
+char listE []=Email.toCharArray();
+
+ if(Character.isDigit(listE[0]))
+ {
+     JOptionPane.showMessageDialog(this, "E Mail is not valid  'should start with letter' ");
+     jTextField5.setText(" ");
+     Email1=false;
+
+ }
+ 
+ for(int i=0;i<nE;i++){
+char cE=listE[i];
+if(cE=='*'||cE=='!'||cE=='/'||cE==';'||cE=='+'||cE=='-'||cE=='$'||cE=='#'||cE=='%'||cE=='^'||cE=='&'||cE=='('||cE==')'||cE=='=')
+{
+    JOptionPane.showMessageDialog(this, "E Mail must contains only letters and numbers and '_' ");
+                                    Email1=false;
+
+}
+    }
+ 
+  if(!Email.contains("@")||!Email.contains(".com"))
+ {JOptionPane.showMessageDialog(this, "E Mail is not valid 'should contain '@' '.com'  ");
+          jTextField5.setText(" ");
+          Email1=false;
+}
+
+}
+
+
+if(SSN.contentEquals(""))
+{
+         JOptionPane.showMessageDialog(this, "please fill the SSN's field");
+         SSN1=false;
+}   
+
+else{
+    int nSSN=SSN.length();
+char listSSN []=SSN.toCharArray();
+for(int i=0;i<nSSN;i++){
+    char cSSN=listSSN[i];
+ if(Character.isLetter(cSSN)||cSSN=='*'||cSSN=='!'||cSSN=='/'||cSSN==';'||cSSN=='+'||cSSN=='-'||cSSN=='$'||cSSN=='@'||cSSN=='#'||cSSN=='%'||cSSN=='^'||cSSN=='&'||cSSN=='('||cSSN==')'||cSSN=='=')
+ {
+     JOptionPane.showMessageDialog(this, "you can only enter digits in SSN's field");
+              SSN1=false;
+     jTextField4.setText(" ");
+     break;
+ }
+ 
+}
+if(nSSN!=14)
+{
+     JOptionPane.showMessageDialog(this, "SSN must be 14 digit");
+     jTextField4.setText(" ");
+              SSN1=false;
+
+}
+
+}
+
+
+if(checkDate.contentEquals(""))
+{
+         JOptionPane.showMessageDialog(this, "please fill the SSN's field");
+         checkDate1=false;
+}
+else{
+    checkDate1=true;
+}
+
+
+
+
+if((name1==true&&Password1==true)&&(national1==true&&Email1==true)&&(SSN1==true&&checkDate1==true))
+{
+        
+         JOptionPane.showMessageDialog(this, "THE ENTERED DATA IS VALIDE");
+
+} 
+  
+
+
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -371,6 +569,7 @@ public class CustomerCheckIn extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;

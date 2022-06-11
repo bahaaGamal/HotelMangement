@@ -15,7 +15,7 @@ public class loginChecker {
             while (rs.next()) {
                 System.out.println(rs.getString("email")+" "+rs.getString("password"));
                  
-                if(rs.getString("email")==email&&rs.getString("password")==pass) f1=true;
+                if(rs.getString("email").equals(email)&&rs.getString("password").equals(pass)) f1=true;
                 
                 }
             if(f1) return true;

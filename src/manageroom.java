@@ -146,9 +146,57 @@ public class manageroom extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      Rooms.addRoom(jTextField1.getText(),(String)jComboBox1.getSelectedItem(),(String)jComboBox2.getSelectedItem(),Double.parseDouble(jTextField2.getText()));
+      String room_no=jTextField1.getText();
+boolean roomt=true;
+int rl=room_no.length();
+
+String price1=jTextField2.getText();
+boolean pricet=true;
+int pl=price1.length();
+
+if(room_no.contentEquals(""))
+{
+         JOptionPane.showMessageDialog(this, "please fill the ROOM NUMBER's field");
+         roomt=false;
+}
+
+else{
+char list []=room_no.toCharArray();
+for(int i=0;i<rl;i++){
+    char cn=list[i];
+ if(Character.isLetter(cn)||cn=='*'||cn=='!'||cn=='/'||cn=='_'||cn=='+'||cn=='-'||cn=='$'||cn=='@'||cn=='#'||cn=='%'||cn=='^'||cn=='&'||cn=='('||cn==')'||cn=='=')
+ { JOptionPane.showMessageDialog(this, "you can only enter letters in name's field");
+     jTextField1.setText(" ");
+              roomt=false;
+     break;}
+}}
+
+
+if(price1.contentEquals(""))
+{
+         JOptionPane.showMessageDialog(this, "please fill the Price's field");
+         pricet=false;
+}
+
+else{
+char list2 []=price1.toCharArray();
+for(int i=0;i<rl;i++){
+    char cn=list2[i];
+ if(Character.isLetter(cn)||cn=='*'||cn=='!'||cn=='/'||cn=='_'||cn=='+'||cn=='-'||cn=='$'||cn=='@'||cn=='#'||cn=='%'||cn=='^'||cn=='&'||cn=='('||cn==')'||cn=='=')
+ { JOptionPane.showMessageDialog(this, "you can only enter letters in name's field");
+     jTextField2.setText(" ");
+              pricet=false;
+     break;}
+}}
+
+
+        
+         if(roomt==true&&pricet==true){
+        Rooms.addRoom(jTextField1.getText(),(String)jComboBox1.getSelectedItem(),(String)jComboBox2.getSelectedItem(),Double.parseDouble(jTextField2.getText()));
        
-       new manageroom().setVisible(true);
+       new manageroom().setVisible(true);}
+
+                  
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed

@@ -284,7 +284,7 @@ public class CustomerCheckOut extends javax.swing.JFrame {
         InsertUpdateDelete.setData(Query, "");
         Query="update rooms set status='Not Booked' where roomNo='"+roomNO+"'";
         InsertUpdateDelete.setData(Query, "");
-        String path="G:\\";
+        String path="E:\\my_project";
         com.itextpdf.text.Document doc=new com.itextpdf.text.Document();
         try 
         {
